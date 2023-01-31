@@ -1,4 +1,15 @@
+Connect to github repo
+
 git remote add origin https://github.com/jbratt/jbratt.github.io.git
 git branch -M main
+
+git pull https://github.com/jbratt/jbratt.github.io.git main --allow-unrelated-histories
+
 git push -u origin main
+
+
+
+git add config.toml
+git commit -m "Modify configuration file"
+git push origin main
 
