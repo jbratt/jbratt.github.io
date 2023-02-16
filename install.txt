@@ -13,3 +13,24 @@ git add config.toml
 git commit -m "Modify configuration file"
 git push origin main
 
+Give workflow write permission on the repo
+Go to repo settings
+Select Actions -> General
+In Workflow permissions, select Read and write permissions
+https://github.com/JamesIves/github-pages-deploy-action/issues/1110
+
+
+git clone https://github.com/jbratt/jbratt.github.io
+
+
+theme - educenter
+https://github.com/themefisher/educenter-hugo
+https://docs.gethugothemes.com/educenter/theme-installation/
+
+
+
+
+logo original 200x68
+#ffbc3b yellow
+#3361e1 blue
+#71b1e3 light blue
