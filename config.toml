@@ -1,5 +1,5 @@
 ######################## default configuration ####################
-baseURL = "https://practicalalgoritm.com/"
+baseURL = "https://practicalalgorithm.com/"
 title = "Practical Algorithm"
 theme = "educenter-hugo"
 # post pagination
