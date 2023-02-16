@@ -1,0 +1,162 @@
+################################# Slider #####################################
+slider:
+  enable : true
+  bg_image : "images/banner/whiteboard.jpg"
+  slider_item:
+    # slider item loop
+    - title : "Salesforce Consulting"
+      content : "We Design, Architect and Implement easy to use solutions leveraging the power of the Salesforce platform."
+      animation_in : "left"
+      animation_out : "right"
+      animate_title : false
+      # available animation : left, right, up, down
+      button:
+        enable : true
+        label : "Learn More"
+        link : "services/"
+
+    # slider item loop
+    - title : "Salesforce Consulting"
+      content : "We always follow Salesforce Best Practices and will not over-engineer your system making it reliable and easy to maintain."
+      animation_in : "left"
+      animation_out : "right"
+      animate_title : false
+      # available animation : left, right, up, down
+      button:
+        enable : true
+        label : "Learn More"
+        link : "services/"
+
+    # slider item loop
+    - title : "Salesforce Consulting"
+      content : "Our solutions utilize the latest Salesforce technology. We implement with both low-code and pro-code options, selecting the most appropriate based on requirements."
+      animation_in : "left"
+      animation_out : "right"
+      animate_title : false
+      # available animation : left, right, up, down
+      button:
+        enable : true
+        label : "Learn More"
+        link : "services/"
+
+    # slider item loop
+    - title : "Salesforce Consulting"
+      content : "We take on projects of all shapes and sizes: Create a Brand new implementation, Add New Features to your org, or Repair and Improve existing org."
+      animation_in : "left"
+      animation_out : "right"
+      animate_title : false
+      # available animation : left, right, up, down
+      button:
+        enable : true
+        label : "Contact Us"
+        link : "contact/"
+
+
+############################### Banner feature ###############################
+banner_feature:
+  enable : true
+  image : "images/banner/flowchart2.png"
+  feature_item:
+    # feature item loop
+    - name : "Sales"
+      icon : "" # icon pack : https://themify.me/themify-icons
+      content : "Increase sales team engament by simplifying data entry while customizing the configuration to match your sales process."
+
+    # feature item loop
+    - name : "Service"
+      icon : "" # icon pack : https://themify.me/themify-icons
+      content : "Create a modern Lightning Service Console to easily access customer data and integrates with all of your channels."
+
+    # feature item loop
+    - name : "Artificial Intelligence"
+      icon : "" # icon pack : https://themify.me/themify-icons
+      content : "Add Einstein features to your Sales and Service clouds. Configure and tune Machine Learning models using your business data."
+
+    # feature item loop
+    - name : "Mobile"
+      icon : "" # icon pack : https://themify.me/themify-icons
+      content : "Create a custom mobile app that allows you to easily access and manage only the data your team needs without needing a laptop."
+
+
+############################## about ##################################
+about:
+  enable : false
+  title : "About Practiacal Algorithm"
+  image : "images/about/about-us.jpg"
+  content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat  pariatur. Excepteur sint occaecat
+
+
+  cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem "
+  button:
+    enable : true
+    label : "Learn more"
+    link : "about/"
+
+
+############################# Course ################################
+course:
+  enable : false
+  title : "Our Courses"
+  # course item comes from "content/**/course" folder.
+
+########################## Call to action ############################
+cta:
+  enable : false
+  subtitle : "Click to Join the Advance Workshop"
+  title : "Training In Advannce Networking"
+  button:
+    enable : true
+    label : "join now"
+    link : "contact/"
+
+
+######################## Success story #############################
+success_story:
+  enable : false
+  bg_image : "images/backgrounds/success-story.jpg"
+  title : "Success Stories"
+  content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat pariatur. Excepteur sint occaecat.
+            
+            
+  ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
+  # video link
+  video_link : "https://www.youtube.com/watch?v=ResipmZmpDU"
+
+
+############################# event ################################
+event:
+  enable : false
+  title : "Upcoming Events"
+  # event item comes from "content/**/event" folder.
+
+  
+########################### funfacts ############################
+funfacts:
+  enable : false
+  funfact_item:
+    # funfact item loop
+    - name : "TEACHERS"
+      count : "60"
+
+    # funfact item loop
+    - name : "COURSES"
+      count : "50"
+
+    # funfact item loop
+    - name : "STUDENTS"
+      count : "1000"
+
+    # funfact item loop
+    - name : "SATISFIED CLIENT"
+      count : "1400"
+
+# funfact is for about page
+
+
+
+############################# blog ################################
+blog:
+  enable : false
+  title : "Latest News"
+  # blog item comes from "content/**/blog" folder.
