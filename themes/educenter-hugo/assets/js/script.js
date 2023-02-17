@@ -31,6 +31,7 @@
 
   //Hero Slider
   $('.hero-slider').slick({
+    mobileFirst: true,
     autoplay: true,
     autoplaySpeed: 7500,
     pauseOnFocus: false,
