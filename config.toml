@@ -130,7 +130,7 @@ copyright = "Copyright &copy; 2023 Practial Algorithm"
 ################### English navigation ####################
 
 [[Languages.en.menu.main]]
-name = "services"
+name = "Services"
 url = "services/"
 weight = 1
 
