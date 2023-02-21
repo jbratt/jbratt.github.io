@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authors on Practical Algorithm</title>
-    <link>https://practicalalgoritm.com/author/</link>
+    <link>https://practicalalgorithm.com/author/</link>
     <description>Recent content in Authors on Practical Algorithm</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Copyright &amp;copy; 2023 Practial Algorithm</copyright><atom:link href="https://practicalalgoritm.com/author/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright &amp;copy; 2023 Practial Algorithm</copyright><atom:link href="https://practicalalgorithm.com/author/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>John doe</title>
-      <link>https://practicalalgoritm.com/author/john-doe/</link>
+      <link>https://practicalalgorithm.com/author/john-doe/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://practicalalgoritm.com/author/john-doe/</guid>
+      <guid>https://practicalalgorithm.com/author/john-doe/</guid>
       <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet vulputate augue.</description>
     </item>
     
     <item>
       <title>Mark Dinn</title>
-      <link>https://practicalalgoritm.com/author/mark-dinn/</link>
+      <link>https://practicalalgorithm.com/author/mark-dinn/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://practicalalgoritm.com/author/mark-dinn/</guid>
+      <guid>https://practicalalgorithm.com/author/mark-dinn/</guid>
       <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet vulputate augue.</description>
     </item>
     

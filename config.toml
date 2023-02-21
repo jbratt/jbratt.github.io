@@ -40,6 +40,10 @@ link = "plugins/filterizr/jquery.filterizr.min.js"
 #[[params.plugins.js]]
 #link = "plugins/google-map/gmap.js"
 
+[sitemap]
+  changefreq = 'monthly'
+  filename = 'sitemap.xml'
+  priority = 0.5
 
 #################### default parameters ################################
 [params]

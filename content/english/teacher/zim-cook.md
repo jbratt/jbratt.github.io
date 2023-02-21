@@ -52,6 +52,7 @@ contact:
 
 # type
 type: "teacher"
+sitemap_ignore: true
 ---
 
 ### About Me

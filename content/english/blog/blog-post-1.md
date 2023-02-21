@@ -15,6 +15,7 @@ categories: ["Automation System"]
 tags: ["Advice", "Automation"]
 # type
 type: "post"
+sitemap_ignore: true
 ---
 
 ### The standard Lorem Ipsum passage, used since the 1500s

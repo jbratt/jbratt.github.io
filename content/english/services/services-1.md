@@ -10,6 +10,7 @@ description : "Service 1"
 image: "images/services/research-1.jpg"
 # type
 type: "services"
+sitemap_ignore: true
 ---
 
 ### About Services

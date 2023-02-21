@@ -10,6 +10,7 @@ description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
 download_link : "#"
 # type
 type: "notice"
+sitemap_ignore: true
 ---
 
 

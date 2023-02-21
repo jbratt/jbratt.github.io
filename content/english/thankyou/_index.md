@@ -7,6 +7,7 @@ bg_image: "images/backgrounds/wbbackground.jpg"
 image: ""
 # meta description
 description : "&nbsp;"
+sitemap_ignore: true
 ---
 
 Thank you for your interest in Practical Algorithm. We will be in contact with you soon.

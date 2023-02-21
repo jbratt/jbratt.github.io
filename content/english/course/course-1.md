@@ -22,6 +22,7 @@ fee : "From: $699"
 apply_url : "#"
 # type
 type: "course"
+sitemap_ignore: true
 ---
 
 

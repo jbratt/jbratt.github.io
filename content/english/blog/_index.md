@@ -5,4 +5,5 @@ draft: false
 bg_image: "images/backgrounds/page-title.jpg"
 # meta description
 description : "this is meta description"
+sitemap_ignore: true
 ---

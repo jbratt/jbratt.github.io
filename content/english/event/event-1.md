@@ -28,6 +28,7 @@ speaker:
 
 # type
 type: "event"
+sitemap_ignore: true
 ---
 
 ### About Event
