@@ -11,18 +11,36 @@
     <div class="row">
       <div class="col-lg-7 mb-4 mb-lg-0">
 
+        <!--
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSexg36k_YSUXZqHecltd9pbBEMUzTgoAUIj53fTM-NS-CxhYA/viewform?embedded=true" width="640" height="809" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        -->
 
-<!--
+        <script type="text/javascript">var submitted=false;</script>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
+        onload="if(submitted) {window.location='/thankyou';}"></iframe>
 
-        <form action="{{ site.Params.contact_form_action | safeURL }}" method="POST">
-          <input type="text" class="form-control mb-3" id="name" name="name" placeholder="Your Name">
-          <input type="email" class="form-control mb-3" id="mail" name="mail" placeholder="Your Email">
-          <input type="text" class="form-control mb-3" id="subject" name="subject" placeholder="Subject">
-          <textarea name="message" id="message" class="form-control mb-3" placeholder="Your Message"></textarea>
-          <button type="submit" value="send" class="btn btn-primary">{{ i18n "send" }}</button>
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSexg36k_YSUXZqHecltd9pbBEMUzTgoAUIj53fTM-NS-CxhYA/formResponse" 
+        method="post" target="hidden_iframe" onsubmit="submitted=true;">
+        
+          <div class="form-group">
+            <label for="entry.1890630302">Name</label>
+            <input type="text" class="form-control mb-3" id="name" name="entry.1890630302" placeholder="First Last">
+          </div>
+          <div class="form-group">
+            <label for="entry.426625235">Email</label>
+            <input type="email" class="form-control mb-3" id="email" name="entry.426625235" placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label for="entry.758675786">Phone</label>
+            <input type="text" class="form-control mb-3" id="phone" name="entry.758675786" placeholder="xxx-xxx-xxxx">
+          </div>
+          <div class="form-group">
+            <label for="entry.790590363">Project Description</label>
+            <textarea name="entry.790590363" id="message" class="form-control mb-3" placeholder="Tell us about your project."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-      -->
+      
       </div>
       <div class="col-lg-5 content">
         {{ .Content }}
