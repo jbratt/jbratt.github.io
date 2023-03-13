@@ -204,6 +204,9 @@ a h4:hover {
 
 .slick-slide {
   outline: 0; }
+  .slick-slide img {
+    padding-top: 20px;
+    padding-bottom: 20px; }
 
 .section {
   padding-top: 90px;

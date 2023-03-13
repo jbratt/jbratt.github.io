@@ -16,7 +16,7 @@ slider:
         link : "services/"
 
     - title : "Salesforce Consulting"
-      content : "![Semantic description](/images/SFPartnerHoriz.png )*Practical Algorithm, Inc. is a Salesforce Partner*"
+      content : "![Salesforce Partner](/images/SFPartnerHoriz.png )*Practical Algorithm, Inc. is a Salesforce Partner*"
       animation_in : "left"
       animation_out : "right"
       animate_title : false
