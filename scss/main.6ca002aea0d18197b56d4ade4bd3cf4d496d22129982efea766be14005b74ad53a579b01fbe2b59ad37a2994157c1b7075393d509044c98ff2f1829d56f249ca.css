@@ -207,6 +207,8 @@ a h4:hover {
   .slick-slide img {
     padding-top: 20px;
     padding-bottom: 20px; }
+  .slick-slide em {
+    font-style: normal; }
 
 .section {
   padding-top: 90px;
@@ -465,7 +467,7 @@ textarea.form-control {
     background: #1a1a37; } }
 
 .navbar-nav {
-  padding-left: 50px;
+  padding-left: 00px;
   background: #71b1e3; }
   @media (max-width: 991px) {
     .navbar-nav {
