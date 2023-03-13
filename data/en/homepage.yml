@@ -15,6 +15,19 @@ slider:
         label : "Learn More"
         link : "services/"
 
+    - title : "Salesforce Consulting"
+      content : "![Semantic description](/images/SFPartnerHoriz.png )*Practical Algorithm, Inc. is a Salesforce Partner*"
+      animation_in : "left"
+      animation_out : "right"
+      animate_title : false
+      # available animation : left, right, up, down
+      button:
+        enable : false
+        label : "Learn More"
+        link : "services/"
+    
+
+
     # slider item loop
     - title : "Salesforce Consulting"
       content : "We always follow Salesforce Best Practices and will not over-engineer your system making it reliable and easy to maintain."
