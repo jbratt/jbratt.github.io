@@ -27,19 +27,6 @@ slider:
         link : "services/"
     
 
-
-    # slider item loop
-    - title : "Salesforce Consulting"
-      content : "We always follow Salesforce Best Practices and will not over-engineer your system making it reliable and easy to maintain."
-      animation_in : "left"
-      animation_out : "right"
-      animate_title : false
-      # available animation : left, right, up, down
-      button:
-        enable : true
-        label : "Learn More"
-        link : "services/"
-
     # slider item loop
     - title : "Salesforce Consulting"
       content : "Our solutions utilize the latest Salesforce technology. We implement with both low-code and pro-code options, selecting the most appropriate based on requirements."
