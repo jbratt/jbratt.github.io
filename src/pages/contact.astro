@@ -1,0 +1,106 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import ContactUs from '~/components/widgets/Contact.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+
+const metadata = {
+  title: 'Contact Us',
+  description:
+    'Contact Practical Algorithm for Salesforce consulting, architecture, implementation, and org improvement services.',
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline="Contact"
+    title="Let’s Connect"
+    subtitle="For more information about our services, or to launch a project with Practical Algorithm, please fill out this form or contact us via email or phone."
+  />
+
+  <section class="mx-auto max-w-3xl px-4 pb-8 sm:px-6">
+    <div
+      class="space-y-5 rounded-xl border border-slate-200 bg-slate-50/70 p-6 text-base leading-relaxed text-slate-700 dark:border-slate-800 dark:bg-slate-900/50 dark:text-slate-300 sm:p-8 sm:text-lg"
+    >
+      <p>
+        Practical Algorithm helps organizations put AI agents into production on the Salesforce platform. We design,
+        build and run Agentforce solutions from start to finish. That starts with readiness assessments and use-case
+        selection, then moves to agent architecture: subagents, actions, deterministic logic and human handoffs. Our
+        team builds the Flows, Apex, prompt templates and integrations behind each agent. We also do the data work that
+        makes agents useful, from grounding agents in Data 360 and knowledge content to connecting outside systems
+        through MuleSoft, APIs and MCP.
+      </p>
+      <p>
+        Trust is part of every engagement. We set up least-privilege security models, configure the Einstein Trust Layer
+        and guardrails, and build testing and observability practices so agents behave predictably at scale. After
+        launch we stay on to tune performance, manage consumption costs and grow our clients&rsquo; digital workforce,
+        so their AI investment turns into measurable business results.
+      </p>
+    </div>
+  </section>
+
+  <ContactUs
+    id="form"
+    title="Tell us about your project"
+    action="https://docs.google.com/forms/d/e/1FAIpQLSexg36k_YSUXZqHecltd9pbBEMUzTgoAUIj53fTM-NS-CxhYA/formResponse"
+    method="post"
+    redirectUrl="/thankyou"
+    inputs={[
+      {
+        type: 'text',
+        name: 'entry.1890630302',
+        label: 'Name',
+        placeholder: 'First Last',
+        autocomplete: 'name',
+        required: true,
+      },
+      {
+        type: 'email',
+        name: 'entry.426625235',
+        label: 'Email',
+        placeholder: 'you@example.com',
+        autocomplete: 'email',
+        required: true,
+      },
+      {
+        type: 'tel',
+        name: 'entry.758675786',
+        label: 'Phone',
+        placeholder: 'xxx-xxx-xxxx',
+        autocomplete: 'tel',
+      },
+    ]}
+    textarea={{
+      name: 'entry.790590363',
+      label: 'Project Description',
+      placeholder: 'Tell us about your project.',
+      rows: 5,
+      required: true,
+    }}
+    button="Submit"
+  />
+
+  <Features2
+    title="Direct Contact"
+    columns={3}
+    items={[
+      {
+        title: 'Phone',
+        description: '773.469.6544',
+        icon: 'tabler:phone',
+        href: 'tel:7734696544',
+      },
+      {
+        title: 'Email',
+        description: 'info@practicalalgorithm.com',
+        icon: 'tabler:mail',
+        href: 'mailto:info@practicalalgorithm.com',
+      },
+      {
+        title: 'Location',
+        description: 'Chicago, IL',
+        icon: 'tabler:map-pin',
+      },
+    ]}
+  />
+</Layout>

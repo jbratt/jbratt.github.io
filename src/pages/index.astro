@@ -1,0 +1,257 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Content from '~/components/widgets/Content.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import StructuredData from '~/components/common/StructuredData.astro';
+import { SITE, I18N } from 'astrowind:config';
+
+const metadata = {
+  title: 'Practical Algorithm — Salesforce Consulting & Architecture',
+  ignoreTitleTemplate: true,
+};
+
+const organizationId = `${SITE?.site}/#organization`;
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE?.site}/#website`,
+    name: SITE?.name,
+    url: SITE?.site,
+    inLanguage: I18N?.language,
+    publisher: { '@id': organizationId },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': organizationId,
+    name: 'Practical Algorithm, Inc.',
+    url: SITE?.site,
+    logo: new URL('/images/logo.png', SITE?.site).toString(),
+    sameAs: ['https://www.linkedin.com/in/johnbratt', 'https://github.com/jbratt'],
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <StructuredData slot="head" schema={structuredData} />
+
+  <Hero
+    tagline="Agentic AI solutions built on the latest Salesforce technology"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Explore Services',
+        href: '/services',
+        icon: 'tabler:arrow-right',
+      },
+    ]}
+  >
+    <Fragment slot="title">Modern Salesforce Consulting</Fragment>
+
+    <Fragment slot="subtitle">
+      We build on Salesforce&rsquo;s newest technology, including Agentforce, Data 360 and the Headless 360 platform, to
+      create intelligent agents that automate work, raise productivity and deliver measurable business results.
+    </Fragment>
+  </Hero>
+
+  <Features2
+    id="agentic-solutions"
+    tagline="AI & Automation"
+    title="Agentic Solutions"
+    subtitle="We help organizations move past pilots and put trusted, production-ready AI agents to work across sales, service and operations, with secure designs, sound data and measurable results."
+    columns={4}
+    classes={{ container: 'pt-6 md:pt-8 lg:pt-10' }}
+    items={[
+      {
+        title: 'AI Strategy & Readiness',
+        description:
+          'Start with a plan you can act on. We work with your stakeholders to find and rank the AI use cases with the most business value. We then check how ready your data, platform and security are, and define clear success measures. You leave with a phased roadmap that takes you from a first pilot to full production.',
+        icon: 'tabler:compass',
+        href: '/contact',
+      },
+      {
+        title: 'Agentforce Design & Build',
+        description:
+          'We design and build agents that act reliably, not just answer questions. Our team creates the Flows, Apex, prompt templates and integrations that let your agents complete real work, with smooth handoffs to your people when a task needs a human.',
+        icon: 'tabler:robot',
+        href: '/contact',
+      },
+      {
+        title: 'Data & Grounding',
+        description:
+          'Give your agents accurate, trusted answers by grounding them in your business data. We design Data 360 data streams, data models and identity resolution to build unified customer profiles. We also prepare unstructured content such as knowledge articles, policies and documents with search indexes and retrievers.',
+        icon: 'tabler:database',
+        href: '/contact',
+      },
+      {
+        title: 'Enterprise Integration',
+        description:
+          'Connect agents to outside systems through MuleSoft, APIs and MCP clients. We also build custom MCP servers on Salesforce that make your CRM data, Flows and Apex logic available as secure tools for Agentforce and other AI agents and assistants.',
+        icon: 'tabler:plug-connected',
+        href: '/contact',
+      },
+      {
+        title: 'Channels & Surfaces',
+        description:
+          'Put agents wherever your customers and employees already work, including web and in-app messaging, Slack, voice, the Salesforce console and custom front ends through the Agent API. Handoffs to human teams are built in.',
+        icon: 'tabler:messages',
+        href: '/contact',
+      },
+      {
+        title: 'Security & Trust',
+        description:
+          "Deploy AI with confidence. We design least-privilege access so each agent can reach only the data and actions it needs. We also set up the Einstein Trust Layer for data masking, audit trails and zero data retention. Guardrails keep sensitive information safe and help you stay compliant with your industry's regulations.",
+        icon: 'tabler:shield-check',
+        href: '/contact',
+      },
+      {
+        title: 'Connect Your Agents',
+        description:
+          'Get more from the agents you already have by building on the Headless 360 platform. We connect them to the data, metadata and context they need from internal and external sources, so they give better answers and can take on more work.',
+        icon: 'tabler:network',
+        href: '/contact',
+      },
+      {
+        title: 'Optimization & Managed Services',
+        description: 'Tune performance, manage costs and expand your digital workforce over time.',
+        icon: 'tabler:trending-up',
+        href: '/contact',
+      },
+    ]}
+  />
+
+  <Features2
+    id="services"
+    tagline="Services"
+    title="Projects of All Shapes and Sizes"
+    subtitle="Whether you are launching Salesforce for the first time, expanding capabilities, or repairing an existing org, we choose the right low-code and pro-code tools for your requirements."
+    columns={3}
+    items={[
+      {
+        title: 'Implement',
+        description:
+          'New to Salesforce or expanding to a new business unit? We architect, implement, and deploy a solution that meets all of your business needs.',
+        icon: 'tabler:rocket',
+        href: '/services',
+      },
+      {
+        title: 'Enhance',
+        description:
+          'Adding new features to your existing Salesforce org? We design new functionality to seamlessly blend into your user experience without disrupting your architecture.',
+        icon: 'tabler:wand',
+        href: '/services',
+      },
+      {
+        title: 'Improve',
+        description:
+          'Unhappy with your current implementation or ready to modernize? We have extensive experience repairing poor implementations and updating orgs to the latest Salesforce technology.',
+        icon: 'tabler:tool',
+        href: '/services',
+      },
+    ]}
+  />
+
+  <Content
+    tagline="Platform Expertise"
+    title="Solutions built with the correct tool"
+    items={[
+      {
+        title: 'Right tool for the requirement',
+        description:
+          'We balance declarative Salesforce configuration with custom Apex, Lightning Web Components, and integrations—avoiding unnecessary complexity while keeping your org maintainable.',
+        icon: 'tabler:adjustments',
+      },
+      {
+        title: 'Built around user adoption',
+        description:
+          'Clean data models and streamlined interfaces simplify day-to-day workflows so your sales and service teams actually enjoy using Salesforce.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'End-to-end delivery',
+        description: 'From requirements gathering and system design through implementation, testing, and deployment.',
+        icon: 'tabler:checklist',
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Practical engineering for Salesforce teams
+      </h3>
+      Our solutions utilize the latest Salesforce technology to match your business processes cleanly.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-sky-50/70 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <Features
+    id="capabilities"
+    tagline="Capabilities"
+    title="Across the Salesforce Platform"
+    subtitle="Focused solutions tailored to how your teams sell, support customers, and operate in the field."
+    columns={2}
+    items={[
+      {
+        title: 'Sales',
+        description:
+          'Increase sales team engagement by simplifying data entry while customizing the configuration to match your sales process.',
+        icon: 'tabler:chart-bar',
+      },
+      {
+        title: 'Service',
+        description:
+          'Create a modern Lightning Service Console to easily access customer data and integrate with all of your channels.',
+        icon: 'tabler:headset',
+      },
+      {
+        title: 'Experience Cloud',
+        description: 'Engaging sites that your Customers and Partners interact with your Salesforce data.',
+        icon: 'tabler:world',
+      },
+      {
+        title: 'Mobile',
+        description:
+          'Create a custom mobile app that allows you to easily access and manage only the data your team needs without needing a laptop.',
+        icon: 'tabler:device-mobile',
+      },
+    ]}
+  />
+
+  <BlogLatestPosts
+    title="Latest from the Blog"
+    information="Practical notes on Salesforce architecture, Apex, Lightning Web Components, and lessons learned from real-world implementations."
+    count={3}
+  />
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Start a Conversation',
+        href: '/contact',
+        icon: 'tabler:mail',
+      },
+    ]}
+    title="Ready to launch or improve your Salesforce org?"
+    subtitle="Tell us about your project and we will follow up to discuss how Practical Algorithm can help."
+  />
+
+  <section class="border-y border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-900/40 py-8">
+    <div
+      class="mx-auto flex max-w-5xl flex-col items-center justify-center gap-4 px-4 text-center sm:flex-row sm:gap-6"
+    >
+      <img src="/images/SFPartnerHoriz.png" alt="Salesforce Partner" class="h-14 w-auto rounded" />
+      <p class="text-base font-medium text-slate-700 dark:text-slate-300">
+        Practical Algorithm, Inc. is a Registered Salesforce Partner
+      </p>
+    </div>
+  </section>
+</Layout>

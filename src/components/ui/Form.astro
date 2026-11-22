@@ -1,0 +1,136 @@
+---
+import type { Form as Props } from '~/types';
+import Button from '~/components/ui/Button.astro';
+
+const {
+  inputs,
+  textarea,
+  disclaimer,
+  button = 'Contact us',
+  description = '',
+  action,
+  method = 'post',
+  redirectUrl,
+} = Astro.props;
+
+const useHiddenIframe = Boolean(action && redirectUrl);
+---
+
+{
+  useHiddenIframe && (
+    <iframe name="aw_hidden_form_iframe" id="aw_hidden_form_iframe" title="Form submission target" class="hidden" />
+  )
+}
+
+<form
+  id={useHiddenIframe ? 'aw-contact-form' : undefined}
+  action={action}
+  method={action ? method : undefined}
+  target={useHiddenIframe ? 'aw_hidden_form_iframe' : undefined}
+  data-redirect={redirectUrl}
+>
+  {
+    inputs &&
+      inputs.map(
+        ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '', required = false }) =>
+          name && (
+            <div class="mb-6">
+              {label && (
+                <label for={name} class="block text-sm font-medium mb-1.5">
+                  {label}
+                </label>
+              )}
+              <input
+                type={type}
+                name={name}
+                id={name}
+                autocomplete={autocomplete}
+                placeholder={placeholder}
+                required={required}
+                class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+              />
+            </div>
+          )
+      )
+  }
+
+  {
+    textarea && (
+      <div>
+        <label for="textarea" class="block text-sm font-medium mb-1.5">
+          {textarea.label}
+        </label>
+        <textarea
+          id="textarea"
+          name={textarea.name ? textarea.name : 'message'}
+          rows={textarea.rows ? textarea.rows : 4}
+          placeholder={textarea.placeholder}
+          required={textarea.required}
+          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+        />
+      </div>
+    )
+  }
+
+  {
+    disclaimer && (
+      <div class="mt-3 flex items-start">
+        <div class="flex mt-0.5">
+          <input
+            id="disclaimer"
+            name="disclaimer"
+            type="checkbox"
+            class="cursor-pointer mt-1 py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+          />
+        </div>
+        <div class="ml-3">
+          <label for="disclaimer" class="cursor-pointer select-none text-sm text-gray-600 dark:text-gray-400">
+            {disclaimer.label}
+          </label>
+        </div>
+      </div>
+    )
+  }
+
+  {
+    button && (
+      <div class="mt-10 grid">
+        <Button variant="primary" type="submit">
+          {button}
+        </Button>
+      </div>
+    )
+  }
+
+  {
+    description && (
+      <div class="mt-3 text-center">
+        <p class="text-sm text-gray-600 dark:text-gray-400">{description}</p>
+      </div>
+    )
+  }
+
+  <script>
+    const setupContactForm = () => {
+      const form = document.getElementById('aw-contact-form');
+      const iframe = document.getElementById('aw_hidden_form_iframe');
+      if (!(form instanceof HTMLFormElement) || !iframe || form.dataset.bound === 'true') return;
+      form.dataset.bound = 'true';
+
+      let submitted = false;
+      form.addEventListener('submit', () => {
+        submitted = true;
+      });
+
+      iframe.addEventListener('load', () => {
+        if (submitted) {
+          const redirect = form.dataset.redirect || '/thankyou';
+          window.location.href = redirect;
+        }
+      });
+    };
+
+    setupContactForm();
+    document.addEventListener('astro:after-swap', setupContactForm);
+  </script>
+</form>

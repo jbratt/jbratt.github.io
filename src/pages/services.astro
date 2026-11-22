@@ -1,0 +1,139 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Our Services',
+  description:
+    'We take on Salesforce projects of all shapes and sizes—from greenfield implementations to enhancing and repairing existing orgs.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Our Services"
+    title="End-to-End Salesforce Consulting"
+    subtitle="We take on projects of all shapes and sizes. We have experience ranging from greenfield implementations to enhancing and repairing existing orgs."
+    actions={[{ variant: 'primary', text: 'Discuss Your Project', href: '/contact', icon: 'tabler:mail' }]}
+  />
+
+  <section class="pb-4">
+    <div class="mx-auto flex max-w-3xl flex-col items-center px-4 text-center">
+      <img
+        src="/images/SFPartnerSquare.png"
+        alt="Salesforce Partner"
+        width="80"
+        height="80"
+        class="mb-4 h-20 w-20 rounded"
+      />
+      <p class="text-lg font-semibold text-slate-800 dark:text-slate-200">
+        Practical Algorithm, Inc. is a Registered Salesforce Partner
+      </p>
+    </div>
+  </section>
+
+  <Features2
+    id="offerings"
+    title="How We Can Help"
+    subtitle="Practical architecture and hands-on delivery tailored to where your Salesforce org is today."
+    columns={3}
+    items={[
+      {
+        title: 'Implement',
+        description:
+          'Are you new to Salesforce or expanding to a new business unit? We will architect, implement, and deploy a solution that meets all of your business needs.',
+        icon: 'tabler:pencil',
+      },
+      {
+        title: 'Enhance',
+        description:
+          'Do you want to add new features to your existing Salesforce org? We will design new functionality to seamlessly blend into your user experience without disrupting your architecture.',
+        icon: 'tabler:wand',
+      },
+      {
+        title: 'Improve',
+        description:
+          'Are you unhappy with your current Salesforce implementation or want it to be updated? We have extensive experience in repairing poor implementations and updating orgs to the latest Salesforce technology.',
+        icon: 'tabler:tool',
+      },
+    ]}
+  />
+
+  <Content
+    id="approach"
+    tagline="Delivery"
+    title="Solutions built with the correct tool"
+    items={[
+      {
+        title: 'Clean, maintainable architecture',
+        description:
+          'We select declarative Flows and configuration when appropriate, and write well-tested Apex and Lightning Web Components when custom engineering is the better fit.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Seamless integrations',
+        description:
+          'Connect Salesforce with the rest of your business stack cleanly and reliably without brittle workarounds.',
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'Built to evolve with your team',
+        description:
+          'Clear documentation, modular design, and best-practice deployment pipelines keep your org easy to support long after launch.',
+        icon: 'tabler:layers-linked',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-sky-50/70 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <Features
+    id="capabilities"
+    tagline="Platform Focus"
+    title="Salesforce Cloud Capabilities"
+    columns={2}
+    items={[
+      {
+        title: 'Sales',
+        description:
+          'Increase sales team engagement by simplifying data entry while customizing the configuration to match your sales process.',
+        icon: 'tabler:chart-bar',
+      },
+      {
+        title: 'Service',
+        description:
+          'Create a modern Lightning Service Console to easily access customer data and integrate with all of your channels.',
+        icon: 'tabler:headset',
+      },
+      {
+        title: 'Experience Cloud',
+        description: 'Engaging sites that your Customers and Partners interact with your Salesforce data.',
+        icon: 'tabler:world',
+      },
+      {
+        title: 'Mobile',
+        description:
+          'Create a custom mobile app that allows you to easily access and manage only the data your team needs without needing a laptop.',
+        icon: 'tabler:device-mobile',
+      },
+    ]}
+  />
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Contact Us',
+        href: '/contact',
+      },
+    ]}
+    title="Have a Salesforce project in mind?"
+    subtitle="Reach out to discuss timelines, architecture, or an assessment of your existing org."
+  />
+</Layout>

@@ -1,0 +1,93 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'About Us',
+  description:
+    'John Bratt is a Salesforce Technical Architect and Developer leading Salesforce consulting projects and implementations.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="About Practical Algorithm"
+    title="Experienced Salesforce Architecture & Delivery"
+    subtitle="John Bratt is a Salesforce Technical Architect and Developer. He has led many large Salesforce consulting projects and implementations. Primary responsibilities include Requirements Gathering, System Design and Architecture, as well as Implementation and Deployment."
+  />
+
+  <section class="pb-12">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+      <div
+        class="flex flex-col items-center justify-between gap-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm sm:flex-row"
+      >
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-wider text-primary">Connect & Credentials</p>
+          <p class="mt-1 text-slate-600 dark:text-slate-400">
+            View John Bratt&rsquo;s professional background and Salesforce certifications.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-6">
+          <a
+            href="https://www.linkedin.com/in/johnbratt"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center rounded-lg bg-white px-4 py-2.5 shadow-sm ring-1 ring-slate-200 transition hover:ring-primary"
+          >
+            <img src="/images/linkedIn.png" alt="LinkedIn Profile" class="h-5 w-auto" />
+          </a>
+
+          <a
+            href="https://trailblazer.me/id/jbratt17"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center rounded-lg bg-white px-4 py-2.5 shadow-sm ring-1 ring-slate-200 transition hover:ring-primary"
+          >
+            <img src="/images/trailblazer-me.png" alt="Salesforce Trailblazer.me Profile" class="h-5 w-auto" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Steps2
+    title="How We Work"
+    subtitle="Every engagement follows a clear, pragmatic path from business goals to production."
+    items={[
+      {
+        title: 'Requirements Gathering',
+        description:
+          'Align with stakeholders and end users to understand business workflows, pain points, and measurable goals before writing code or configuring objects.',
+        icon: 'tabler:clipboard-list',
+      },
+      {
+        title: 'System Design & Architecture',
+        description:
+          'Design a clean, scalable Salesforce data model, security model, and integration architecture using the right mix of low-code and pro-code tools.',
+        icon: 'tabler:sitemap',
+      },
+      {
+        title: 'Implementation & Deployment',
+        description:
+          'Build, test, and deploy cleanly into production—delivering solutions your team can adopt quickly and maintain with confidence.',
+        icon: 'tabler:cloud-upload',
+      },
+    ]}
+  />
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get in Touch',
+        href: '/contact',
+        icon: 'tabler:mail',
+      },
+    ]}
+    title="Let’s talk about your Salesforce roadmap"
+    subtitle="Based in Chicago, IL and working with organizations across the United States."
+  />
+</Layout>

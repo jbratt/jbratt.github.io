@@ -1,0 +1,48 @@
+---
+// Font family is provided by Astro's native Fonts API (see `fonts` in
+// astro.config.ts and <Font /> in Layout.astro), exposed as `--font-inter`.
+// Brand palette tuned to Practical Algorithm's Salesforce cyan/navy identity.
+---
+
+<style is:inline>
+  :root {
+    --aw-font-sans: var(--font-inter);
+    --aw-font-serif: var(--font-inter);
+    --aw-font-heading: var(--font-inter);
+
+    --aw-color-primary: rgb(0 134 201);
+    --aw-color-secondary: rgb(0 107 161);
+    --aw-color-accent: rgb(0 174 239);
+
+    --aw-color-text-heading: rgb(24 43 69);
+    --aw-color-text-default: rgb(30 41 59);
+    --aw-color-text-muted: rgb(71 85 105);
+    --aw-color-bg-page: rgb(255 255 255);
+
+    --aw-color-bg-page-dark: rgb(11 18 32);
+
+    ::selection {
+      background-color: rgb(0 174 239 / 25%);
+    }
+  }
+
+  .dark {
+    --aw-font-sans: var(--font-inter);
+    --aw-font-serif: var(--font-inter);
+    --aw-font-heading: var(--font-inter);
+
+    --aw-color-primary: rgb(0 174 239);
+    --aw-color-secondary: rgb(0 134 201);
+    --aw-color-accent: rgb(56 189 248);
+
+    --aw-color-text-heading: rgb(247 248 248);
+    --aw-color-text-default: rgb(229 236 246);
+    --aw-color-text-muted: rgb(229 236 246 / 68%);
+    --aw-color-bg-page: rgb(11 18 32);
+
+    ::selection {
+      background-color: rgb(0 174 239 / 40%);
+      color: #ffffff;
+    }
+  }
+</style>
