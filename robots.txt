@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://practicalalgorithm.com/sitemap-index.xml
