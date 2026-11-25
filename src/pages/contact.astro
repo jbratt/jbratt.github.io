@@ -12,6 +12,10 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <Fragment slot="head">
+    <script is:inline src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </Fragment>
+
   <HeroText
     tagline="Contact"
     title="Let’s Connect"
@@ -42,41 +46,81 @@ const metadata = {
   <ContactUs
     id="form"
     title="Tell us about your project"
-    action="https://docs.google.com/forms/d/e/1FAIpQLSexg36k_YSUXZqHecltd9pbBEMUzTgoAUIj53fTM-NS-CxhYA/formResponse"
+    action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dbn00000DdeHU"
     method="post"
-    redirectUrl="/thankyou"
+    hiddenInputs={[
+      {
+        name: 'captcha_settings',
+        value: '{"keyname":"WebToLead","fallback":"true","orgId":"00Dbn00000DdeHU","ts":""}',
+      },
+      {
+        name: 'oid',
+        value: '00Dbn00000DdeHU',
+      },
+      {
+        name: 'retURL',
+        value: 'https://practicalalgorithm.com/thankyou/',
+      },
+      {
+        id: 'lead_source',
+        name: 'lead_source',
+        value: 'Web',
+      },
+    ]}
     inputs={[
       {
         type: 'text',
-        name: 'entry.1890630302',
-        label: 'Name',
-        placeholder: 'First Last',
-        autocomplete: 'name',
+        name: 'first_name',
+        label: 'First Name',
+        placeholder: 'First Name',
+        autocomplete: 'given-name',
+        maxlength: 40,
         required: true,
       },
       {
-        type: 'email',
-        name: 'entry.426625235',
-        label: 'Email',
-        placeholder: 'you@example.com',
-        autocomplete: 'email',
+        type: 'text',
+        name: 'last_name',
+        label: 'Last Name',
+        placeholder: 'Last Name',
+        autocomplete: 'family-name',
+        maxlength: 80,
+        required: true,
+      },
+      {
+        type: 'text',
+        name: 'company',
+        label: 'Company',
+        placeholder: 'Company',
+        autocomplete: 'organization',
+        maxlength: 40,
         required: true,
       },
       {
         type: 'tel',
-        name: 'entry.758675786',
+        name: 'phone',
         label: 'Phone',
         placeholder: 'xxx-xxx-xxxx',
         autocomplete: 'tel',
+        maxlength: 40,
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: 'Email',
+        placeholder: 'you@example.com',
+        autocomplete: 'email',
+        maxlength: 80,
+        required: true,
       },
     ]}
     textarea={{
-      name: 'entry.790590363',
-      label: 'Project Description',
+      name: 'description',
+      label: 'Description',
       placeholder: 'Tell us about your project.',
       rows: 5,
       required: true,
     }}
+    recaptchaSiteKey="6LfbVDIuAAAAAE8VjHAYqkJK9DExM4WG8npIewQl"
     button="Submit"
   />
 

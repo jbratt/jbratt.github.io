@@ -4,35 +4,26 @@ import Button from '~/components/ui/Button.astro';
 
 const {
   inputs,
+  hiddenInputs,
   textarea,
   disclaimer,
+  recaptchaSiteKey,
   button = 'Contact us',
   description = '',
   action,
   method = 'post',
-  redirectUrl,
 } = Astro.props;
 
-const useHiddenIframe = Boolean(action && redirectUrl);
+const textareaId = textarea?.name || 'textarea';
 ---
 
-{
-  useHiddenIframe && (
-    <iframe name="aw_hidden_form_iframe" id="aw_hidden_form_iframe" title="Form submission target" class="hidden" />
-  )
-}
+<form action={action} method={action ? method : undefined}>
+  {hiddenInputs && hiddenInputs.map(({ name, value, id }) => <input type="hidden" name={name} value={value} id={id} />)}
 
-<form
-  id={useHiddenIframe ? 'aw-contact-form' : undefined}
-  action={action}
-  method={action ? method : undefined}
-  target={useHiddenIframe ? 'aw_hidden_form_iframe' : undefined}
-  data-redirect={redirectUrl}
->
   {
     inputs &&
       inputs.map(
-        ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '', required = false }) =>
+        ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '', maxlength, required = false }) =>
           name && (
             <div class="mb-6">
               {label && (
@@ -46,6 +37,7 @@ const useHiddenIframe = Boolean(action && redirectUrl);
                 id={name}
                 autocomplete={autocomplete}
                 placeholder={placeholder}
+                maxlength={maxlength}
                 required={required}
                 class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
               />
@@ -57,11 +49,11 @@ const useHiddenIframe = Boolean(action && redirectUrl);
   {
     textarea && (
       <div>
-        <label for="textarea" class="block text-sm font-medium mb-1.5">
+        <label for={textareaId} class="block text-sm font-medium mb-1.5">
           {textarea.label}
         </label>
         <textarea
-          id="textarea"
+          id={textareaId}
           name={textarea.name ? textarea.name : 'message'}
           rows={textarea.rows ? textarea.rows : 4}
           placeholder={textarea.placeholder}
@@ -93,9 +85,17 @@ const useHiddenIframe = Boolean(action && redirectUrl);
   }
 
   {
+    recaptchaSiteKey && (
+      <div class="mt-6">
+        <div class="g-recaptcha" data-sitekey={recaptchaSiteKey} />
+      </div>
+    )
+  }
+
+  {
     button && (
-      <div class="mt-10 grid">
-        <Button variant="primary" type="submit">
+      <div class="mt-8 grid">
+        <Button variant="primary" type="submit" name="submit">
           {button}
         </Button>
       </div>
@@ -109,28 +109,67 @@ const useHiddenIframe = Boolean(action && redirectUrl);
       </div>
     )
   }
-
-  <script>
-    const setupContactForm = () => {
-      const form = document.getElementById('aw-contact-form');
-      const iframe = document.getElementById('aw_hidden_form_iframe');
-      if (!(form instanceof HTMLFormElement) || !iframe || form.dataset.bound === 'true') return;
-      form.dataset.bound = 'true';
-
-      let submitted = false;
-      form.addEventListener('submit', () => {
-        submitted = true;
-      });
-
-      iframe.addEventListener('load', () => {
-        if (submitted) {
-          const redirect = form.dataset.redirect || '/thankyou';
-          window.location.href = redirect;
-        }
-      });
-    };
-
-    setupContactForm();
-    document.addEventListener('astro:after-swap', setupContactForm);
-  </script>
 </form>
+
+<script>
+  let timestampIntervalId: number | undefined;
+
+  const updateCaptchaTimestamp = () => {
+    const captchaInput = document.getElementsByName('captcha_settings')[0];
+    if (!(captchaInput instanceof HTMLInputElement)) return;
+    const response = document.getElementById('g-recaptcha-response');
+    const responseValue =
+      response instanceof HTMLTextAreaElement || response instanceof HTMLInputElement ? response.value : '';
+    if (response === null || responseValue.trim() === '') {
+      try {
+        const elems = JSON.parse(captchaInput.value);
+        elems['ts'] = JSON.stringify(new Date().getTime());
+        captchaInput.value = JSON.stringify(elems);
+      } catch {
+        // Ignore malformed JSON
+      }
+    }
+  };
+
+  const renderRecaptchaIfNeeded = () => {
+    const container = document.querySelector<HTMLElement>('.g-recaptcha');
+    if (!container || container.childElementCount > 0) return;
+
+    const sitekey = container.dataset.sitekey;
+    if (!sitekey) return;
+
+    const grecaptcha = (
+      window as Window & { grecaptcha?: { render?: (el: HTMLElement, opts: { sitekey: string }) => void } }
+    ).grecaptcha;
+    if (grecaptcha && typeof grecaptcha.render === 'function') {
+      grecaptcha.render(container, { sitekey });
+      return;
+    }
+
+    if (!document.querySelector('script[src*="google.com/recaptcha/api.js"]')) {
+      const script = document.createElement('script');
+      script.src = 'https://www.google.com/recaptcha/api.js';
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+  };
+
+  const setupSalesforceWebToLead = () => {
+    if (timestampIntervalId !== undefined) {
+      window.clearInterval(timestampIntervalId);
+      timestampIntervalId = undefined;
+    }
+
+    const captchaInput = document.getElementsByName('captcha_settings')[0];
+    if (captchaInput) {
+      updateCaptchaTimestamp();
+      timestampIntervalId = window.setInterval(updateCaptchaTimestamp, 500);
+    }
+
+    renderRecaptchaIfNeeded();
+  };
+
+  document.addEventListener('astro:page-load', setupSalesforceWebToLead);
+  setupSalesforceWebToLead();
+</script>

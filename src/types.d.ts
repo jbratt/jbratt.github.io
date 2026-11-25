@@ -163,7 +163,14 @@ export interface Input {
   label?: string;
   autocomplete?: string;
   placeholder?: string;
+  maxlength?: number;
   required?: boolean;
+}
+
+export interface HiddenInput {
+  name: string;
+  value: string;
+  id?: string;
 }
 
 export interface Textarea {
@@ -189,13 +196,14 @@ export interface CallToAction extends Omit<HTMLAttributes<'a'>, 'slot'> {
 
 export interface Form {
   inputs?: Array<Input>;
+  hiddenInputs?: Array<HiddenInput>;
   textarea?: Textarea;
   disclaimer?: Disclaimer;
+  recaptchaSiteKey?: string;
   button?: string;
   description?: string;
   action?: string;
   method?: 'get' | 'post';
-  redirectUrl?: string;
 }
 
 // WIDGETS
